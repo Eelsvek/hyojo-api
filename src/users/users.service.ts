@@ -10,10 +10,6 @@ export class UsersService {
   };
 
   delete(userId: string): string {
-    // set user active flag to false
-    const index = this.users.findIndex(user => user.id === userId);
-    this.users.splice(index);
-
     return userId
   };
 

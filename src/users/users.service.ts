@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.entity';
-import { UserInterface } from './interfaces/user.interface';
 
 @Injectable()
 export class UsersService {
@@ -11,12 +11,16 @@ export class UsersService {
     private usersRepository: Repository<User>,
   ) {}
   
-  async create(user: UserInterface): Promise<void>{
-    console.log('wee', user);
+  async create(createUserDto: CreateUserDto){
+    const { email } = createUserDto;
+    
+    const user = new User();
+    user.email = email
+
     try {
-      this.usersRepository.create(user)
+      await user.save();
     } catch (e) {
-      console.log('Error', e)
+      Logger.log('Error', e);
     }
   };
 }

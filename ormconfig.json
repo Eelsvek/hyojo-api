@@ -1,0 +1,12 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "kevin",
+  "password": "asdfasdf",
+  "database": "hyojo",
+  "synchronize": true,
+  "entities": [
+    "dist/**/*.entity.js"
+  ]
+}

@@ -1,15 +1,19 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, DeleteDateColumn, BaseEntity } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, DeleteDateColumn, BaseEntity, UpdateDateColumn } from 'typeorm';
 
 @Entity()
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  firstName: string;
+  @Column({
+    nullable: true
+  })
+  firstName?: string;
 
-  @Column()
-  lastName: string;
+  @Column({
+    nullable: true
+  })
+  lastName?: string;
 
   @Column({
     unique: true
@@ -17,11 +21,11 @@ export class User extends BaseEntity {
   email: string;
   
   @CreateDateColumn()
-  dateCreated: Date;
+  created: Date;
 
-  @Column()
-  dateDeactivated: Date;
+  @UpdateDateColumn()
+  updated: Date;
 
   @DeleteDateColumn()
-  dateDeleted: Date;
-}
+  deletedAt?: Date;
+} 

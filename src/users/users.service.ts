@@ -9,13 +9,17 @@ export class UsersService {
   private readonly logger = new Logger('UsersService');
 
   constructor(
-      @InjectRepository(User) 
-      private usersRepository: Repository<User>
+    @InjectRepository(User) 
+    private usersRepository: Repository<User>
   ) {}
   
-  async get(): Promise<User[]> {
+  async getUsers(): Promise<User[]> {
     return this.usersRepository.find();
   };
+
+  async getUserByEmail(email: string): Promise<User> {
+    return this.usersRepository.findOne({ email })
+  }
 
   async create(createUserDto: CreateUserDto){
     const { email } = createUserDto;

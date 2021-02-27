@@ -5,7 +5,7 @@ import { UsersService } from 'src/users/users.service';
 export class AuthService {
   constructor(private usersService: UsersService) {}
 
-  async validateUser(): Promise<any> {
+  async validateUser(username: string, password: string): Promise<any> {
     return null
   }
 }

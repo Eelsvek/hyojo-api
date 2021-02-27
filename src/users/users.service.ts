@@ -7,9 +7,10 @@ import { User } from './user.entity';
 @Injectable()
 export class UsersService {
   private readonly logger = new Logger('UsersService');
+
   constructor(
-    @InjectRepository(User) 
-    private usersRepository: Repository<User>
+      @InjectRepository(User) 
+      private usersRepository: Repository<User>
   ) {}
   
   async get(): Promise<User[]> {

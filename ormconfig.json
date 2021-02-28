@@ -5,7 +5,7 @@
   "username": "kevin",
   "password": "asdfasdf",
   "database": "hyojo",
-  "synchronize": true,
+  "synchronize": false,
   "entities": [
     "dist/**/*.entity.js"
   ]

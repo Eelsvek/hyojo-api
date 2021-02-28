@@ -8,5 +8,11 @@
   "synchronize": false,
   "entities": [
     "dist/**/*.entity.js"
-  ]
+  ],
+  "migrations": [
+    "migration/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "migration"
+  }
 }

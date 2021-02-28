@@ -13,19 +13,20 @@ export class UsersService {
     private usersRepository: Repository<User>
   ) {}
   
-  async getUsers(): Promise<User[]> {
+  async get(): Promise<User[]> {
     return this.usersRepository.find();
   };
 
-  async getUserByEmail(email: string): Promise<User> {
-    return this.usersRepository.findOne({ email })
+  async getByEmail(email: string): Promise<User> {
+    return this.usersRepository.findOne({ email });
   }
 
   async create(createUserDto: CreateUserDto){
-    const { email } = createUserDto;
+    const { email, password } = createUserDto;
     
     const user: User = new User();
-    user.email = email
+    user.email = email;
+    user.password = password;
 
     try {
       await user.save();

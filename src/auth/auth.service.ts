@@ -6,9 +6,10 @@ export class AuthService {
   constructor(private usersService: UsersService) {}
 
   async validateUser(email: string, password: string): Promise<any> {
-    const user = await this.usersService.getUserByEmail(email)
+    const user = await this.usersService.getByEmail(email)
 
-    
+
+
 
     return;
   }

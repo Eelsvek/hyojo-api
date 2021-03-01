@@ -7,10 +7,10 @@
   "database": "hyojo",
   "synchronize": false,
   "entities": [
-    "dist/**/*.entity.js"
+    "dist/**/*.entity.{ts,js}"
   ],
   "migrations": [
-    "migration/*.ts"
+    "migration/*.{ts,js}"
   ],
   "cli": {
     "migrationsDir": "migration"

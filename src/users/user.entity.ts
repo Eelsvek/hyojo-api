@@ -20,15 +20,17 @@ export class User extends BaseEntity {
   })
   email: string;
 
-  @Column()
+  @Column({
+    nullable: true
+  })
   password: string;
   
   @CreateDateColumn()
-  created: Date;
+  createdOn: Date;
 
   @UpdateDateColumn()
-  updated: Date;
+  updatedOn: Date;
 
   @DeleteDateColumn()
-  deletedAt?: Date;
+  deletedOn?: Date;
 } 
